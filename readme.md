@@ -1,9 +1,14 @@
 # About
 
 This project is for exploring Oracle JET framework. The initial files are generated using
-`ojet create app` with a blank template.
+`ojet create myojet` with a blank template.
 
-## Cookbook
+References:
+- https://oraclejet.org
+- https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html
+- https://www.oracle.com/webfolder/technetwork/jet/jsdocs/oj.ojRadioset.html
+
+## Local Cookbook
 
 We can explore some JET cookbook examples locally here by creating a html file under `src/cookbook`.
 The files will be auto copy to `web` folder when you run `ojet serve`, hence it can accessible by 
