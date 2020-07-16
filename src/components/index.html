@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/css/redwood/9.0.1/web/redwood.css" id="css" />
+    <script type="text/javascript" src="/js/libs/require/require.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script>
+        requirejs.config({baseUrl: '/js'});
+        require(['knockout', 'ojs/ojknockout', 'hello-component/loader'], function (ko) {
+            const app = new function() {
+                this.message = ko.observable('Example of hello-component');
+            }
+            ko.applyBindings(app, document.getElementById("app"));
+        });
+    </script>
+</head>
+<body>
+  <div id="app" class="oj-web-padding">
+      <oj-bind-text value="[[message]]"></oj-bind-text>
+      <hello-component></hello-component>
+  </div>
+</body>
+</html>
