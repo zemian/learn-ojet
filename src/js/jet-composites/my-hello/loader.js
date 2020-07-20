@@ -4,9 +4,9 @@
   as shown at https://oss.oracle.com/licenses/upl/
 
 */
-define(['ojs/ojcomposite', 'text!./hello-component-view.html', './hello-component-viewModel', 'text!./component.json', 'css!./hello-component-styles'],
+define(['ojs/ojcomposite', 'text!./my-hello-view.html', './my-hello-viewModel', 'text!./component.json', 'css!./my-hello-styles'],
   function(Composite, view, viewModel, metadata) {
-    Composite.register('hello-component', {
+    Composite.register('my-hello', {
       view: view,
       viewModel: viewModel,
       metadata: JSON.parse(metadata)

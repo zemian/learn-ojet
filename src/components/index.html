@@ -8,9 +8,9 @@
     <script type="text/javascript" src="/js/main.js"></script>
     <script>
         requirejs.config({baseUrl: '/js'});
-        require(['knockout', 'ojs/ojknockout', 'hello-component/loader'], function (ko) {
+        require(['knockout', 'ojs/ojknockout', 'my-hello/loader'], function (ko) {
             const app = new function() {
-                this.message = ko.observable('Example of hello-component');
+                this.message = ko.observable('Example of my-hello');
             }
             ko.applyBindings(app, document.getElementById("app"));
         });
@@ -19,7 +19,7 @@
 <body>
   <div id="app" class="oj-web-padding">
       <oj-bind-text value="[[message]]"></oj-bind-text>
-      <hello-component></hello-component>
+      <my-hello></my-hello>
   </div>
 </body>
 </html>

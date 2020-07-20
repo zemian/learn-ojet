@@ -6,7 +6,7 @@
 */
 define({
   "root": {
-    "hello-component" : {
+    "my-hello" : {
     		"sampleString": "The strings file can be used to manage translatable resources"
     }
   }

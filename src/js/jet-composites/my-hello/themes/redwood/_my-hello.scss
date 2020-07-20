@@ -6,14 +6,14 @@
 // @import "oj/core/themes/redwood/common/_oj-palette.cssvars.scss";
 
 // import the css common to all themes
-@import "../base/_hello-component.scss";
+@import "../base/_my-hello.scss";
 
 // Even if this file is imported many times 'module-include-once' ensures the content is included just once .
-@include module-include-once("hello-component.redwood") {
+@include module-include-once("my-hello.redwood") {
 :root {
   
   // set your variables inside of :root, an example:
-  //  --hello-component-value-text-color: var(--oj-palette-red-140);
+  //  --my-hello-value-text-color: var(--oj-palette-red-140);
 
 }
 } 

@@ -1,5 +1,5 @@
 {
-  "name": "hello-component",
+  "name": "my-hello",
   "version": "1.0.0",
   "jetVersion": "^9.0.0",
   "displayName": "A user friendly, translatable name of the component.",

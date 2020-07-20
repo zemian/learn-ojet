@@ -6,7 +6,7 @@
 */
 'use strict';
 define(
-    ['knockout', 'ojL10n!./resources/nls/hello-component-strings', 'ojs/ojcontext', 'ojs/ojknockout'], function (ko, componentStrings, Context) {
+    ['knockout', 'ojL10n!./resources/nls/my-hello-strings', 'ojs/ojcontext', 'ojs/ojknockout'], function (ko, componentStrings, Context) {
     
     function ExampleComponentModel(context) {
         var self = this;
@@ -19,9 +19,9 @@ define(
         self.composite = context.element;
 
         //Example observable
-        self.messageText = ko.observable('Hello from hello-component');
+        self.messageText = ko.observable('Hello from my-hello');
         self.properties = context.properties;
-        self.res = componentStrings['hello-component'];
+        self.res = componentStrings['my-hello'];
         // Example for parsing context properties
         // if (context.properties.name) {
         //     parse the context properties here
