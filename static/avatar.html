@@ -1,0 +1,13 @@
+<div id="app">
+    <oj-avatar initials="[[message]]"></oj-avatar>
+</div>
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+<script>
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojavatar'], function(ko) {
+        const app = new function () {
+            this.message = ko.observable('ZD');
+        }
+        ko.applyBindings(app);
+    });
+</script>
