@@ -15,10 +15,7 @@
 <script src="../web/js/libs/require/require.js"></script>
 <script src="main.js"></script>
 <script>
-    /*
-    When adding "required" to checkboxset, and when you clear the value, the validation
-    will kick in, and it does not clear the previous value!
-     */
+    // based on: https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html?component=checkboxsets&demo=checkboxset
     require(['knockout', 'ojs/ojknockout', 'ojs/ojcheckboxset', 'ojs/ojlabel'], function(ko) {
         const app = new function () {
             this.agreement = ko.observableArray();
