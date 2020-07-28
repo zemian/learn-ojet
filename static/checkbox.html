@@ -1,0 +1,31 @@
+<div id="app">
+    <div>
+        <oj-label id="agreeId" show-required>License Agreement </oj-label>
+        <oj-checkboxset id="checkboxSetAgreeId" labelled-by="agreeId"
+                        value="{{agreement}}">
+            <oj-option id="agree" value="agree">I Agree</oj-option>
+        </oj-checkboxset>
+    </div>
+    <div>
+        <span>Current component value is: </span>
+        <oj-bind-text value="[[agreement]]"></oj-bind-text>
+    </div>
+</div>
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+<script>
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojcheckboxset', 'ojs/ojlabel'], function(ko) {
+        const app = new function () {
+            this.agreement = ko.observableArray();
+
+            // NOTE: A "oj-checkboxset" value is always a an array! even if you use an observable.
+            // this.agreement = ko.observable();
+
+            ko.computed(() => {
+                const v = this.agreement();
+                console.log("agreement", v);
+            });
+        }
+        ko.applyBindings(app);
+    });
+</script>
