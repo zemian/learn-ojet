@@ -1,0 +1,13 @@
+<div id="app">
+    <oj-bind-text value="[[message]]"></oj-bind-text>
+</div>
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+<script>
+    require(['knockout', 'ojs/ojknockout'], function(ko) {
+        const app = new function () {
+            this.message = ko.observable('Hello');
+        }
+        ko.applyBindings(app);
+    });
+</script>
