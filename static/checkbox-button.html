@@ -2,7 +2,8 @@
     <div>
         <oj-label id="agreeId" show-required>License Agreement </oj-label>
         <oj-checkboxset id="checkboxSetAgreeId" labelled-by="agreeId"
-                        value="{{agreement}}">
+                        value="{{agreement}}"
+                        required="true">
             <oj-option id="agree" value="agree">I Agree</oj-option>
         </oj-checkboxset>
     </div>
@@ -26,16 +27,21 @@
             this.agreement = ko.observableArray();
 
             this.toggleCheckbox = () => {
+                console.log("agreement before: " + this.agreement());
                 if (this.agreement().length > 0)
                     this.agreement.pop();
                 else
                     this.agreement.push('agree');
+                console.log("agreement after: " + this.agreement());
             }
 
-            ko.computed(() => {
-                const v = this.agreement();
-                console.log("agreement", v);
-            });
+            // Notice that updating the "agreement" obs by code does not trigger UI checkboxset validation!
+            // Compare this to checkbox-required.html, you get UI error!
+
+            // ko.computed(() => {
+            //     const v = this.agreement();
+            //     console.log("agreement", v);
+            // });
         }
         ko.applyBindings(app);
     });
