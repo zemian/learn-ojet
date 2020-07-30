@@ -2,20 +2,20 @@
 <script src="main.js"></script>
 
 <div id="app">
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <div class="app-card">
             <oj-file-picker on-oj-select='[[listener]]'></oj-file-picker>
         </div>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>Accept filter: images and videos</p>
         <div class="app-card">
             <oj-file-picker on-oj-select='[[listener]]' accept='["image/*", "video/*", "text/*"]'></oj-file-picker>
         </div>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>Accept filter: text files</p>
         <div class="app-card">
             <!-- note "text/*" will not work! It must be spelled out! -->
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>Custom trigger</p>
         <div class="app-container">
             <oj-file-picker on-oj-select='[[listener]]' select-on="clickAndDrop">

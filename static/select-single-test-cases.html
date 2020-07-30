@@ -2,30 +2,30 @@
 <script src="main.js"></script>
 
 <div id="app">
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <oj-select-single data="[[dataProvider]]"></oj-select-single>
     </div>
 
     <h1>Options</h1>
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>on-value-changed (on selection changed)</p>
         <oj-select-single data="[[dataProvider]]" on-value-changed="[[onValueChanged]]"></oj-select-single>
         <code><oj-bind-text value="[[selectedItem]]"></oj-bind-text></code>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>value writeback</p>
         <oj-select-single data="[[dataProvider]]" value="{{selectedItem}}"></oj-select-single>
         <code><oj-bind-text value="[[selectedItem]]"></oj-bind-text></code>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>item-text</p>
         <oj-select-single data="[[dataProvider]]" item-text="myLabel" value="{{selectedItem}}"></oj-select-single>
         <code><oj-bind-text value="[[selectedItem]]"></oj-bind-text></code>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>customize option display</p>
         <oj-select-single data="[[dataProvider]]" value="{{selectedItem}}">
             <template slot="itemTemplate">
@@ -37,13 +37,13 @@
         <code><oj-bind-text value="[[selectedItem]]"></oj-bind-text></code>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>value-item with dataProviderMyKey</p>
         <oj-select-single data="[[dataProviderMyKey]]" value-item="{{selectedItemContext}}"></oj-select-single>
         <code><oj-bind-text value="[[JSON.stringify(selectedItemContext())]]"></oj-bind-text></code>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>dataProviderMyKey selection affected by other value-item</p>
         <oj-select-single data="[[dataProviderMyKey]]" value-item="{{selectedItemContext}}"></oj-select-single>
         <code><oj-bind-text value="[[JSON.stringify(selectedItemContext())]]"></oj-bind-text></code>

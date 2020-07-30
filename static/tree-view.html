@@ -2,7 +2,7 @@
 <script src="main.js"></script>
 
 <div id="app">
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>With icons</p>
         <oj-tree-view data="[[data]]">
             <template slot="itemTemplate" data-oj-as="row">
@@ -14,7 +14,7 @@
         </oj-tree-view>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>No icons</p>
         <oj-tree-view data="[[data]]">
             <template slot="itemTemplate" data-oj-as="row">
@@ -25,7 +25,7 @@
         </oj-tree-view>
     </div>
 
-    <div class="app-content">
+    <div class="oj-web-applayout-content">
         <p>Selection</p>
         <oj-tree-view data="[[data]]" selection-mode="multiple" selected="{{selected}}">
             <template slot="itemTemplate" data-oj-as="row">
