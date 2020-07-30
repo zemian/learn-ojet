@@ -1,0 +1,28 @@
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+
+<div id="app">
+    <oj-table data="[[dataProvider]]"
+              columns='[
+                {"headerText": "ID", "field": "recordId"},
+                {"headerText": "Name", "field": "name"},
+                {"headerText": "Key", "field": "referenceKey"}
+              ]'>
+    </oj-table>
+</div>
+<script>
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojtable'], function (ko, ArrayDataProvider) {
+        let app = new function () {
+            this.data = ko.observableArray([]);
+            this.dataProvider = new ArrayDataProvider(this.data, {keyAttributes: "recordId"});
+
+            // init data
+            let url = 'http://den02lxb.us.oracle.com:8090/km/api/latest/categories';
+            fetch(url).then(resp => resp.json()).then(data => {
+                console.log("data", data);
+                this.data.push(...data.items);
+            });
+        };
+        ko.applyBindings(app, document.getElementById("app"));
+    });
+</script>

@@ -1,0 +1,55 @@
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+
+<div id="app" class="oj-web-padding">
+    <div>
+        <oj-button on-click="[[onClear]]">Clear</oj-button>
+        <oj-button on-click="[[onPopulate]]">Populate</oj-button>
+    </div>
+    <oj-table data="[[departmentsDP]]" columns='[[columns]]'
+              style="border: 1px solid black; height: 400px; width: 100%;">
+    </oj-table>
+</div>
+<script>
+    require(['knockout', 'ojs/ojarraydataprovider',
+        'ojs/ojknockout', 'ojs/ojtable', 'ojs/ojbutton'], function (ko, ArrayDataProvider) {
+        function AppViewModel() {
+            this.departmentsData = [
+                {DepartmentId: 3, DepartmentName: 'ADFPM 1001 neverending', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 5, DepartmentName: 'BB', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 10, DepartmentName: 'Administration', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 20, DepartmentName: 'Marketing', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 30, DepartmentName: 'Purchasing', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 40, DepartmentName: 'Human Resources1', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 50, DepartmentName: 'Administration2', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 60, DepartmentName: 'Marketing3', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 70, DepartmentName: 'Purchasing4', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 80, DepartmentName: 'Human Resources5', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 90, DepartmentName: 'Human Resources11', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 100, DepartmentName: 'Administration12', LocationId: 200, ManagerId: 300},
+                {DepartmentId: 110, DepartmentName: 'Marketing13', LocationId: 200, ManagerId: 300}
+            ];
+            this.getCopyOfDepartments = () => {
+                return this.departmentsData.slice();
+            };
+            this.departments = ko.observableArray(this.getCopyOfDepartments());
+            this.columns = [
+                {headerText: "Id", field: "DepartmentId"},
+                {headerText: "Name", field: "DepartmentName"},
+                {headerText: "Location", field: "LocationId"},
+                {headerText: "Manager", field: "ManagerId"}
+            ];
+            this.departmentsDP = new ArrayDataProvider(this.departments);
+            this.onClear = () => {
+                console.log("Clear departments");
+                this.departments.removeAll();
+            };
+            this.onPopulate = () => {
+                console.log("Populate all departments");
+                this.departments(this.getCopyOfDepartments());
+            };
+        }
+
+        ko.applyBindings(new AppViewModel());
+    });
+</script>

@@ -1,0 +1,65 @@
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+
+<div id="app">
+    <div class="app-toolbar app-content">
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-middle" style="margin-right: 0.5em;">
+                <oj-input-text label-hint="JSON Options" value="{{options}}"></oj-input-text>
+            </div>
+            <div class="oj-flex-bar-end">
+                <oj-button class="oj-button-lg" on-oj-action="[[applyOptions]]">Apply</oj-button>
+            </div>
+        </div>
+        <oj-toolbar chroming="outlined">
+        </oj-toolbar>
+    </div>
+    <div class="app-data-table app-content">
+        <div class="app-data-table-progress">
+            <oj-progress-circle class="data-table-progress-el"
+                                value='{{progressValue}}'
+                                :style.visibility="[[isLoading() ? 'visible' : 'hidden']]"></oj-progress-circle>
+        </div>
+        <oj-table id="app-table"
+                  style="height: 80vh; width: 100%;"
+                  data="[[dataProvider]]"
+                  columns='[
+                    {"headerText": "ID", "field": "id", "width": 100},
+                    {"headerText": "Name", "field": "name", "width": 200},
+                    {"headerText": "Value", "field": "value"}
+                  ]'>
+        </oj-table>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout',
+        'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojinputtext', 'ojs/ojprogress-circle',
+        'ojs/ojtable'], function (ko, ArrayDataProvider) {
+        let app = new function () {
+            this.options = ko.observable('{"action": "loadData", "size": 10}');
+            this.data = ko.observableArray([]);
+            this.dataProvider = new ArrayDataProvider(this.data, {keyAttributes: "id"});
+            this.isLoading = ko.observable(false);
+            this.progressValue = ko.computed(() => this.isLoading() ? -1 : 0);
+
+            this.applyOptions = () => {
+                let opts = JSON.parse(this.options());
+                console.log("Applying options: ", opts);
+
+                // Start the loading process
+                this.isLoading(true);
+                console.log("Data will be loaded in 3 secs ...");
+                setTimeout(() => {
+                    let start = this.data().length,
+                        max = start + opts.size;
+                    for (let i = start; i < max; i++) {
+                        this.data.push({id: i, name: opts.batchId + '_' + i, value: Math.random().toString(16)});
+                    }
+                    this.isLoading(false);
+                }, 3000);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>
+

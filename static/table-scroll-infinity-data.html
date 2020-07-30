@@ -1,0 +1,85 @@
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+
+<div id="app">
+    <div class="app-toolbar app-content">
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-middle" style="margin-right: 0.5em;">
+                <oj-input-text label-hint="JSON Options" value="{{options}}"></oj-input-text>
+            </div>
+            <div class="oj-flex-bar-end">
+                <oj-button class="oj-button-lg" on-oj-action="[[applyOptions]]">Apply</oj-button>
+            </div>
+        </div>
+        <oj-toolbar chroming="outlined">
+        </oj-toolbar>
+    </div>
+    <div class="app-data-table app-content">
+        <oj-table id="app-table"
+                  style="height: 80vh; width: 100%;"
+                  data="[[dataProvider]]"
+                  scroll-policy="loadMoreOnScroll"
+                  on-scroll-position-changed="[[onTableScroll]]"
+                  columns='[
+                    {"headerText": "ID", "field": "id", "width": 100},
+                    {"headerText": "Name", "field": "name", "width": 200},
+                    {"headerText": "Value", "field": "value"}
+                  ]'>
+        </oj-table>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout',
+        'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojinputtext',
+        'ojs/ojtable'], function (ko, ArrayDataProvider) {
+        let app = new function () {
+            this.options = ko.observable('{"action": "infinityScroll", "size": 20, "rowIndex": 19}');
+            this.data = ko.observableArray([]);
+            this.dataProvider = new ArrayDataProvider(this.data, {keyAttributes: "id"});
+
+            // init data
+            let opts = JSON.parse(this.options());
+            for (let i = 0; i < opts.size; i++) {
+                this.data.push({id: i, name: 'Test_' + i, value: Math.random().toString(16)});
+            }
+
+            this.applyOptions = () => {
+                let opts = JSON.parse(this.options());
+                console.log("Applying options: ", opts);
+
+                let index = opts.rowIndex;
+                let table = document.getElementById("app-table");
+                let visibleRow = table.getDataForVisibleRow(index);
+                console.log("Info: index. visibleRow ", index, visibleRow);
+            };
+
+            this.appendData = () => {
+                let opts = JSON.parse(this.options());
+                console.log("appendData options: ", opts);
+
+                let batchId = Math.random().toString(16).substring(2);
+                let start = this.data().length,
+                    max = start + opts.size;
+                for (let i = start; i < max; i++) {
+                    this.data.push({id: i, name: batchId + '_' + i, value: Math.random().toString(16)});
+                }
+            };
+
+            this.onTableScroll = (event, data) => {
+                // console.log("onTableScroll event", event, data);
+
+                // let scrollPosition = event.detail.value;
+                // console.log("onTableScroll scrollPosition", scrollPosition);
+
+                let index = this.data().length - 1;
+                let table = document.getElementById("app-table");
+                let visibleRow = table.getDataForVisibleRow(index);
+                if (visibleRow != null) {
+                    this.appendData();
+                }
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>
+
