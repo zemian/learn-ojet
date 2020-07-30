@@ -45,7 +45,6 @@
         'proj4': 'libs/proj4js/dist/proj4-src',
         'css': 'libs/require-css/css',
         'touchr': 'libs/touchr/touchr',
-        'persist': '@samplesjsloc@/persist/debug',
         'corejs' : 'libs/corejs/shim',
         'chai': 'libs/chai/chai-4.2.0',
         'regenerator-runtime' : 'libs/regenerator-runtime/runtime'
@@ -55,20 +54,9 @@
   );
 }());
 
-require(['ojs/ojbootstrap', 'knockout', 'ojs/ojknockout'],
-  function (Bootstrap) {
-    Bootstrap.whenDocumentReady().then(
-      function () {
-        function init() {
-        }
-
-        // If running in a hybrid (e.g. Cordova) environment, we need to wait for the deviceready
-        // event before executing any code that might interact with Cordova APIs or plugins.
-        if (document.body.classList.contains('oj-hybrid')) {
-          document.addEventListener('deviceready', init);
-        } else {
-          init();
-        }
-      });
-  }
-);
+require(['ojs/ojbootstrap', 'root'], function (Bootstrap, Root) {
+  // this callback gets executed when all required modules are loaded
+  Bootstrap.whenDocumentReady().then(function(){
+    Root.init();
+  });
+});

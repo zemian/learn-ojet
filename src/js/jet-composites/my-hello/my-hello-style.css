@@ -1,8 +1,0 @@
-my-hello:not(.oj-complete){
-  visibility: hidden;
-}
-
-my-hello{
-	min-height: 50px;
-	width: 50px;
-}
