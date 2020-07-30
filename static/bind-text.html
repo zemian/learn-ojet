@@ -2,9 +2,10 @@
     <span>Message: <oj-bind-text value="[[message]]"></oj-bind-text></span>
 </div>
 
-<link rel="stylesheet" href="../../static/static.css">
-<script type="text/javascript" src="../../../../web/js/libs/require/require.js"></script>
-<script type="text/javascript" src="../../requirejs-ojet.js"></script>
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+
+
 <script>
     requirejs.config({ baseUrl: '../../../../web/js' });
     require(['knockout', 'ojs/ojknockout'], function (ko) {
