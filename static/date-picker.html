@@ -16,7 +16,6 @@
 
 
 <script>
-    requirejs.config({baseUrl: '../../../web/js'});
     require(['knockout', 'ojs/ojknockout', 'ojs/ojdatetimepicker'], function (ko) {
         let app = new function () {
             this.selectedDate = ko.observable('2020-05-16');

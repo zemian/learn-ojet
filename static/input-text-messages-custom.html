@@ -30,7 +30,6 @@ If you misspelled it nothing will happen!
 
 
 <script>
-    requirejs.config({baseUrl: '../../../web/js'});
     require(['knockout', 'ojs/ojmessaging', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojinputtext'], function (ko, Message) {
         let app = new function () {
             this.inputValue = ko.observable();
