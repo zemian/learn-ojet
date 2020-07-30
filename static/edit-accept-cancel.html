@@ -1,0 +1,128 @@
+<link rel="stylesheet" href="demo-static.css">
+<link rel="stylesheet" href="../static/static-icons.css">
+<div id="app">
+    <div class="app-content">
+        <p>Use "margin-left:auto;" to push toolbar to right.</p>
+        <div class="oj-flex oj-sm-flex-direction-column">
+            <div class="oj-flex-item">
+                <div>
+                    <oj-input-text value="{{inputValue}}"></oj-input-text>
+                </div>
+            </div>
+            <div class="oj-flex-item" style="margin-left: auto;">
+                <div>
+                    <oj-toolbar>
+                        <oj-button on-oj-action="[[accept]]" display="icons">
+                            <span slot='startIcon' class="oj-ux-ico-check"></span>
+                        </oj-button>
+                        <oj-button on-oj-action="[[cancel]]" display="icons">
+                            <span slot='startIcon' class="oj-ux-ico-close"></span>
+                        </oj-button>
+                    </oj-toolbar>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-content">
+        <p>Use "justify-content" to push toolbar to right.</p>
+        <div class="oj-flex oj-sm-flex-direction-column">
+            <div class="oj-flex-item">
+                <div>
+                    <oj-input-text value="{{inputValue}}"></oj-input-text>
+                </div>
+            </div>
+            <div class="oj-flex-item">
+                <div class="oj-flex" style="flex-wrap: wrap; justify-content: flex-end;">
+                    <div class="oj-flex-item" style="flex: 0 0 auto;">
+                        <div>
+                            <oj-toolbar>
+                                <oj-button on-oj-action="[[accept]]" display="icons">
+                                    <span slot='startIcon' class="oj-ux-ico-check"></span>
+                                </oj-button>
+                                <oj-button on-oj-action="[[cancel]]" display="icons">
+                                    <span slot='startIcon' class="oj-ux-ico-close"></span>
+                                </oj-button>
+                            </oj-toolbar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-content">
+        <p>Use one grow-able flex item to push another no-grow item to push toolbar to right.</p>
+        <div class="oj-flex oj-sm-flex-direction-column">
+            <div class="oj-flex-item">
+                <div>
+                    <oj-input-text value="{{inputValue}}"></oj-input-text>
+                </div>
+            </div>
+            <div class="oj-flex-item">
+                <div class="oj-flex">
+                    <div class="oj-flex-item"></div>
+                    <div class="oj-flex-item" style="flex: 0 0 auto;">
+                        <oj-toolbar>
+                            <oj-button on-oj-action="[[accept]]" display="icons">
+                                <span slot='startIcon' class="oj-ux-ico-check"></span>
+                            </oj-button>
+                            <oj-button on-oj-action="[[cancel]]" display="icons">
+                                <span slot='startIcon' class="oj-ux-ico-close"></span>
+                            </oj-button>
+                        </oj-toolbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-content">
+        <p>Use oj-flex-bar-end to push toolbar to right.</p>
+        <div class="oj-flex oj-sm-flex-direction-column">
+            <div class="oj-flex-item">
+                <div>
+                    <oj-input-text value="{{inputValue}}"></oj-input-text>
+                </div>
+            </div>
+            <div class="oj-flex-item">
+                <div class="oj-flex-bar">
+                    <div class="oj-flex-bar-end">
+                        <oj-toolbar>
+                            <oj-button on-oj-action="[[accept]]" display="icons">
+                                <span slot='startIcon' class="oj-ux-ico-check"></span>
+                            </oj-button>
+                            <oj-button on-oj-action="[[cancel]]" display="icons">
+                                <span slot='startIcon' class="oj-ux-ico-close"></span>
+                            </oj-button>
+                        </oj-toolbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({baseUrl: '../../../web/js'});
+    require([
+        'knockout',
+        'ojs/ojknockout',
+        'ojs/ojbutton',
+        'ojs/ojtoolbar',
+        'ojs/ojinputtext'
+    ], function (ko) {
+        let app = new function () {
+            this.inputValue = ko.observable('Administrator');
+            this.edit = () => {
+            }
+            this.accept = () => {
+            }
+            this.cancel = () => {
+            }
+        };
+        ko.applyBindings(app);
+    });
+</script>

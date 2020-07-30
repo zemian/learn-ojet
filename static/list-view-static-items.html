@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <h1>ListView</h1>
+    <div class="oj-panel">
+        <oj-list-view>
+            <ul>
+                <li><a id="item1" href="#" on-click="[[onClick]]">Item 1</a></li>
+                <li><a id="item2" href="#" on-click="[[onClick]]">Item 2</a></li>
+                <li><a id="item3" href="#" on-click="[[onClick]]">Item 3</a></li>
+            </ul>
+        </oj-list-view>
+    </div>
+</div>
+<script>
+    /*
+    In a static list, you do not need to handle code on oj-list-view, but work with whatever it is on the list
+    items as display. Note that we can handle the <a> link event if we want to.
+
+    Note: Each <li> item must contain a container element. Plain text will not work!
+     */
+    let app;
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojlistview'
+    ], function (ko) {
+        app = new function () {
+            this.onClick = (event) => {
+                console.log("Clicked", event);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

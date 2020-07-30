@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="demo-static.css">
+<link rel="stylesheet" href="../static/static-icons.css">
+<div id="app">
+    <div style="height:100%;width:100%;overflow-x:hidden;">
+        <div class="pk-selected-wrapper">
+            <oj-list-view :id="[['pk-listview-selected'+$uniqueId]]"
+                          class="pk-right-list"
+                          data="[[dataProviderSelected]]"
+                          on-oj-animate-start="[[onBeforeAnimateStart]]"
+                          on-keydown="[[handleSelectedKeyDown]]"
+                          current-item="{{currentSelectedItem}}"
+                          :aria-label="[[resourceStrings.aria_listselected]]">
+                <template slot="itemTemplate" data-oj-as="item">
+                                            <span :title="[[item.data.tooltip]]" style="white-space:nowrap;">
+                                                <span class="pk-selected-list-item">
+                                                    <span class="pk-ellipsis" style="max-width:250px;font-size:10pt;">
+                                                        <oj-bind-text value="[[item.data.name]]"></oj-bind-text>
+                                                    </span>
+                                                    <span style="vertical-align:middle;">
+                                                        <a class="oj-clickable-icon"
+                                                           id="pk-selected-anchor"
+                                                           on-click="[[handleSelectedAnchorClick]]"
+                                                           on-keydown="[[handleSelectedAnchorKeyDown]]"
+                                                           :title="[[resourceStrings.remove]]"
+                                                           :aria-label="[[resourceStrings.remove]]"
+                                                           tabindex="0">
+                                                            <i class="oj-ux-ico-close-circle-s"></i>
+                                                        </a>
+                                                    </span>
+                                                </span>
+                                            </span>
+                </template>
+            </oj-list-view>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({baseUrl: '../../../web/js'});
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojlistview'], function (ko, ArrayDataProvider) {
+        let app = new function () {
+            this.$uniqueId = 'id123';
+            this.resourceStrings = {
+                aria_listselected: 'aria_listselected',
+                remove: 'remove'
+            };
+            this.dataProviderSelected = new ArrayDataProvider([
+                {id: 1, tooltip: 'one', name: 'one'},
+                {id: 2, tooltip: 'two', name: 'two'}
+            ]);
+            this.currentSelectedItem = ko.observable({});
+            this.onBeforeAnimateStart = () => {
+                console.log("onBeforeAnimateStart");
+            };
+            this.handleSelectedKeyDown = () => {
+                console.log("handleSelectedKeyDown");
+            };
+            this.handleSelectedAnchorClick = () => {
+                console.log("handleSelectedAnchorClick");
+            };
+            this.handleSelectedAnchorKeyDown = () => {
+                console.log("handleSelectedAnchorKeyDown");
+            };
+        };
+        ko.applyBindings(app, document.getElementById("app"));
+    });
+</script>

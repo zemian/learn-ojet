@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="demo-static.css">
+<div id="app">
+    <oj-bind-text value="[[message]]"></oj-bind-text>
+    <oj-button :id="[[uniqueId]]" on-oj-action="[[onClick]]">Click</oj-button>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({baseUrl: '../../../web/js'});
+    require([
+        'knockout',
+        'ojs/ojknockout',
+        'ojs/ojbutton',
+    ], function (ko) {
+        let app = new function () {
+            this.uniqueId = Math.random().toString(16).substring(2);
+            this.message = ko.observable(0);
+            this.onClick = () => {
+                this.message(this.message() + 1);
+            }
+        };
+        ko.applyBindings(app);
+    });
+</script>

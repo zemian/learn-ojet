@@ -1,0 +1,38 @@
+<link href="../../static/main-demo.css" rel="stylesheet">
+<div id="app" class="oj-web-padding">
+    <div class="oj-panel">
+        <h2>Plain Select</h2>
+        <label for="pet-select">Choose a pet:</label>
+        <select name="pets" id="pet-select" on-change="[[onAction]]">
+            <option value="">--Please choose an option--</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+
+        <h2>You can't use oj-option without an OJ parent component</h2>
+        <select>
+            <option>One</option>
+            <option>Two</option>
+            <oj-option>Three</oj-option>
+        </select>
+    </div>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    let app;
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojoption'], (ko) => {
+        app = new function () {
+            this.onAction = (event, data) => {
+                console.log("onAction event, data", event, data);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>
+

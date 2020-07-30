@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://static.oracle.com/cdn/fnd/gallery/2010.0.0/images/iconfont/ojuxIconFont.min.css" type="text/css" />
+<link rel="stylesheet" href="https://static-stage.oracle.com/cdn/jet/v9.0.0-alpha11/default/css/redwood/oj-redwood-min.css" type="text/css">
+<script src="https://static-stage.oracle.com/cdn/jet/v9.0.0-alpha11/3rdparty/require/require.js"></script>
+<script src="https://static-stage.oracle.com/cdn/jet/v9.0.0-alpha11/default/js/bundles-config.js"></script>
+
+<div id="app">
+    <div class="oj-web-padding">
+        <oj-bind-text value="[[message]]"></oj-bind-text>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojknockout'], function (ko) {
+        let app = new function () {
+            this.message = ko.observable("Hello World");
+        };
+        ko.applyBindings(app);
+    });
+</script>

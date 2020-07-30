@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<template id="templateA">
+    <div>
+        <oj-bind-text value="[[message]]"></oj-bind-text>
+    </div>
+</template>
+<div id="app">
+    <oj-bind-dom config="[[getDom('templateA', 'dataA')]]"></oj-bind-dom>
+    <oj-bind-dom config="[[getDom('templateA', 'dataB')]]"></oj-bind-dom>
+</div>
+<script>
+    require([
+        'knockout',
+        'ojs/ojhtmlutils',
+        'ojs/ojknockout',
+        'ojs/ojbinddom',
+    ], function (ko, HtmlUtils) {
+        let app = new function () {
+            this.data = {
+                dataA: {
+                    message: "Hello1"
+                },
+                dataB: {
+                    message: "Hello2"
+                }
+            };
+            this.getDom = (templateName, dataName) => {
+                let nodes = HtmlUtils.getTemplateContent(document.getElementById(templateName));
+                let data = this.data[dataName];
+                return {view: nodes, data: data};
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

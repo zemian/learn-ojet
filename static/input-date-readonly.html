@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="demo-static.css">
+<div id="app">
+    <div class="app-content">
+        <p>inputValue1: '2020-05-20'</p>
+        <code>
+            <oj-input-date value="[[inputValue1]]" readonly></oj-input-date>
+        </code>
+    </div>
+    <div class="app-content">
+        <p>inputValue2: undefined</p>
+        <code>
+            <oj-input-date value="[[inputValue2]]" readonly></oj-input-date>
+        </code>
+    </div>
+    <div class="app-content">
+        <p>inputValue3: ''</p>
+        <code>
+            <oj-input-date value="[[inputValue3]]" readonly></oj-input-date>
+        </code>
+    </div>
+    <div class="app-content">
+        <p>inputValue4: 'NaN'</p>
+        <code>
+            <oj-input-date value="[[inputValue4]]" readonly></oj-input-date>
+        </code>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({baseUrl: '../../../web/js'});
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojdatetimepicker'], function (ko) {
+        let app = new function () {
+            this.inputValue1 = ko.observable('2020-05-20');
+            this.inputValue2 = ko.observable(undefined);
+            this.inputValue3 = ko.observable('');
+            this.inputValue4 = ko.observable('NaN');
+        };
+        ko.applyBindings(app);
+    });
+</script>

@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.css">
+<div id="app">
+    <div class="app-section">
+        <span data-bind="text: msg"></span>
+    </div>
+</div>
+
+<script src="https://unpkg.com/knockout@3.5.1/build/output/knockout-latest.js"></script>
+<script>
+    let app = new function () {
+        this.msg = "Hello";
+    };
+    ko.applyBindings(app);
+</script>

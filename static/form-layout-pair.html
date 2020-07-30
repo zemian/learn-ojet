@@ -1,0 +1,42 @@
+<link href="../../static/main-demo.css" rel="stylesheet">
+<style>
+/*
+The oj-input-field styled the max-width: 18em, so we need to change that to have full width.
+Note: If you use oj-input-text label-hint, the width of input is automatically expanded to full!
+See form-layout-label-hint.html
+
+Note the empty <oj-label> is added just to make well formed oj-form-layout pair. It serve no
+purpose in this demo, but if you were to use label-edge="start" then it's a must!
+See form-layout-label-edge-start.html
+An alternative way is to use oj-label-value component instead.
+*/
+.is-full-width {
+    max-width: 100%;
+}
+</style>
+<div class="oj-panel">
+    <oj-form-layout>
+        <oj-label show-required="true">Username</oj-label>
+        <oj-input-text class="is-full-width"></oj-input-text>
+
+        <oj-label>API</oj-label>
+        <oj-input-text class="is-full-width"></oj-input-text>
+
+        <oj-label></oj-label>
+        <oj-button>Update</oj-button>
+    </oj-form-layout>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    let app;
+    require(['knockout', 'ojs/ojknockout',
+        'ojs/ojformlayout', 'ojs/ojlabel', 'ojs/ojlabelvalue',
+        'ojs/ojinputtext', 'ojs/ojbutton'
+    ], (ko) => {
+        app = new function () {
+        };
+        ko.applyBindings(app);
+    });
+</script>

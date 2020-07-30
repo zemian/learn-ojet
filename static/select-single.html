@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app">
+    <div class="app-content">
+        <oj-select-single data="[[dataProvider]]"></oj-select-single>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojarraydataprovider',
+        'ojs/ojknockout', 'ojs/ojselectsingle'
+    ], function (ko, ArrayDataProvider) {
+        let app = new function () {
+            this.data = ko.observableArray([]);
+            this.dataProvider = new ArrayDataProvider(this.data);
+
+            // Init
+            for (let i = 0; i < 10; i++) {
+                let item = {
+                    label: (i % 3) + '_' + Math.random(),
+                    myLabel: "My" + i,
+                    myKey: "key" + i
+                };
+                this.data.push(item);
+            }
+        };
+        ko.applyBindings(app, document.getElementById("app"));
+    });
+</script>

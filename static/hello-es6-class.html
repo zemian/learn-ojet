@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../src/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app">
+    <div class="app-content">
+        <oj-button on-oj-action="[[onAction]]">Test</oj-button>
+        <oj-button on-oj-action="[[onAction2]]">Test2</oj-button>
+        <oj-button on-oj-action="[[onAction3]]">Test3</oj-button>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojbutton', 'ojs/ojknockout'], function (ko) {
+        let app = new class {
+            message = ko.observable("Hello World!");
+            onAction3 = (event) => this._onAction3(event);
+
+            onAction = (event) => {
+                console.log("event, this", event, this);
+            };
+
+            onAction2(event) {
+                console.log("event2, this", event, this);
+            }
+            _onAction3(event) {
+                console.log("event3, this", event, this);
+            }
+        };
+        ko.applyBindings(app);
+    });
+</script>

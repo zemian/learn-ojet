@@ -1,0 +1,50 @@
+<link href="../../static/main-demo.css" rel="stylesheet">
+<style>
+    /*
+    NOTE: Note that Alta theme can auto pack the label nicely, but in redwood we need to explicitly set width to
+    control it. -- Fixed in latest v9alpha8 redwood.css!
+     */
+    .is-full-width {
+        /*width: 1px;*/
+        /*min-width: 100%;*/
+    }
+    .container {
+        margin: 2em;
+    }
+</style>
+
+<div id="app" class="container oj-flex oj-sm-flex-direction-column">
+    <div class="oj-flex-item">
+        <oj-buttonset-one value="{{selectedValue}}" on-value-changed="[[onValueChanged]]" class="is-full-width">
+            <oj-option value="myValue0">ZERO</oj-option>
+            <oj-option value="myValue1">ONE</oj-option>
+        </oj-buttonset-one>
+    </div>
+
+    <div class="oj-flex-item">
+        <oj-buttonset-many value="{{selectedValueList}}" on-value-changed="[[onValueChanged]]" class="is-full-width">
+            <oj-option value="myValue0">ZERO</oj-option>
+            <oj-option value="myValue1">ONE</oj-option>
+            <oj-option value="myValue2">TWO</oj-option>
+            <oj-option value="myValue3">THREE</oj-option>
+            <oj-option value="myValue4">FOUR</oj-option>
+        </oj-buttonset-many>
+    </div>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    let app;
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojbutton'], (ko) => {
+        app = new function () {
+            this.selectedValue = ko.observable("myValue0");
+            this.selectedValueList = ko.observableArray([]);
+            this.onValueChanged = () => {
+                console.log("selectedValue", this.selectedValue());
+                console.log("selectedValueList", this.selectedValueList());
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

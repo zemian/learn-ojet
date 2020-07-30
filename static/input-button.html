@@ -1,0 +1,21 @@
+<link href="../../static/main-demo.css" rel="stylesheet">
+<div id="app" class="oj-web-padding">
+    <div class="oj-panel" style="width: 300px;">
+        <oj-label>Input</oj-label>
+        <oj-input-text></oj-input-text>
+        <oj-button>Update</oj-button>
+    </div>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    let app;
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojinputtext', 'ojs/ojbutton'], (ko) => {
+        app = new function () {
+            this.name = ko.observable("Hello");
+        };
+        ko.applyBindings(app);
+    });
+</script>
+

@@ -1,0 +1,61 @@
+<link href="../../static/main-demo.css" rel="stylesheet">
+<div id="app" class="oj-web-padding">
+    <h1>List1 - Value is a string</h1>
+    <div class="oj-panel">
+        <ul>
+            <!-- NOTE: This is same as KO's noChildContext: true -->
+            <oj-bind-for-each data="[[list]]">
+                <template>
+                    <li>
+                        <oj-bind-text value="[[$current.data]]"></oj-bind-text>
+                    </li>
+                </template>
+            </oj-bind-for-each>
+        </ul>
+    </div>
+    <h1>List2 - Value is an object</h1>
+    <div class="oj-panel">
+        <ul>
+            <oj-bind-for-each data="[[list2]]">
+                <template>
+                    <li>
+                        <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+                    </li>
+                </template>
+            </oj-bind-for-each>
+        </ul>
+    </div>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    /**
+     * Try in Console:
+     *
+     * // Adding to list
+     * app.list.push("Three");
+     *
+     * // Changing entire array
+     * app.list([1, 2, 3]);
+     *
+     * // Modifying array outside of observable
+     * app.list()[1] = 'two';
+     * app.list.valueHasMutated();
+     *
+     * // Replace item
+     * app.list.replace(3, 'three');
+     */
+    let app;
+    require(['knockout', 'ojs/ojknockout'], function (ko) {
+        app = new function () {
+            this.list = ko.observableArray(['one', 'two']);
+            this.list2 = ko.observableArray([
+                {id: 1, name: "TUE"},
+                {id: 2, name: "MON"},
+                {id: 3, name: "WED"}
+            ]);
+        };
+        ko.applyBindings(app);
+    });
+</script>

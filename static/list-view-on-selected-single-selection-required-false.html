@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <h1>ListView</h1>
+    <div class="oj-panel">
+        <oj-list-view data="[[dataProvider]]"
+                      selection-required="false"
+                      selection-mode="single"
+                      on-selected-changed="[[onSelection]]">
+        </oj-list-view>
+    </div>
+</div>
+<script>
+    /*
+    The list-view component is designed to capture one or more selection. Even we enabled single selection mode,
+    the click highlight behavior is still the same: Click entry one to select it, click it again, it will DESELECT IT!
+
+    To prevent this, you need to add selection-required="true", then it will prevent the problem above!
+    We default to "false" as demonstration purpose.
+     */
+    let app;
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojlistview'
+    ], function (ko, ArrayDataProvider) {
+        app = new function () {
+            this.data = ko.observableArray([
+                'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
+            ]);
+            this.dataProvider = new ArrayDataProvider(this.data);
+            this.onSelection = (event) => {
+                //console.log("Clicked", event);
+
+                // Getting the selected value from "detail.value"
+                let keySet = event.detail.value;
+                let selectedKey = Array.from(keySet.values())[0]; // Converting OJET KeySet to JS Set, then to JS Array, then first element
+                let selectedValue = this.data()[selectedKey];
+                console.log("selectedKey:", selectedKey, "selectedValue:", selectedValue);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

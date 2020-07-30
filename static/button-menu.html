@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="demo-static.css">
+<div id="app">
+    <div class="app-content">
+        <oj-menu-button>
+            <oj-menu slot="menu" style="display:none" on-oj-action="[[onMenuAction]]">
+                <oj-option value="i1">Item 1</oj-option>
+                <oj-option value="i2">Item 2</oj-option>
+                <oj-option value="i3">Item 3</oj-option>
+            </oj-menu>
+        </oj-menu-button>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    /*
+    If you missed 'ojs/ojmenu' in requirejs, you will odd error like this:
+
+    ojbutton.js:2012 Uncaught Error: JET Button: "menu" option specified, but does not reference a valid JET Menu.
+    at $.<computed>.<computed>._getMenu (ojbutton.js:2012)
+    at $.<computed>.<computed>._getMenu (widget.js:132)
+    at HTMLButtonElement.<anonymous> (ojbutton.js:1962)
+    at HTMLButtonElement.dispatch (jquery-3.5.1.js:5429)
+    at HTMLButtonElement.elemData.handle (jquery-3.5.1.js:5233)
+    
+     */
+    requirejs.config({baseUrl: '../../../web/js'});
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojmenu'], function (ko) {
+        let app = new function () {
+            this.onMenuAction = (event, data) => {
+                //console.log("onMenuAction event, data: ", event, data);
+                let menuItem = event.target.value;
+                console.log("Menu item: " + menuItem);
+            };
+        };
+        ko.applyBindings(app, document.getElementById("app"));
+    });
+</script>

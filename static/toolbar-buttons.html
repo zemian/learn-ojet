@@ -1,0 +1,203 @@
+<link rel="stylesheet" href="demos.css">
+<link rel="stylesheet" href="demos-icons.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app">
+
+    <div class="app-content">
+        <h1>Default Toolbar</h1>
+        <oj-toolbar>
+            <oj-button on-oj-action="[[onClick]]" display="icons">
+                <span slot='startIcon' class="oj-ux-ico-mouse"></span>
+            </oj-button>
+            <oj-button on-oj-action="[[onClick]]" display="icons">
+                <span slot='startIcon' class="oj-ux-ico-clock"></span>
+            </oj-button>
+        </oj-toolbar>
+    </div>
+
+    <div class="app-content">
+        <h1>Toolbar with borders</h1>
+        <oj-toolbar class="oj-toolbar-top-border oj-toolbar-bottom-border">
+            <oj-button on-oj-action="[[onClick]]" display="icons">
+                <span slot='startIcon' class="oj-ux-ico-mouse"></span>
+            </oj-button>
+            <oj-button on-oj-action="[[onClick]]" display="icons">
+                <span slot='startIcon' class="oj-ux-ico-clock"></span>
+            </oj-button>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-buttonset-many>
+                <oj-option value="m1">A</oj-option>
+                <oj-option value="m2">B</oj-option>
+                <oj-option value="m3">C</oj-option>
+            </oj-buttonset-many>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-buttonset-one>
+                <oj-option value="o1">
+                    <span slot='startIcon' class="oj-ux-ico-copy"></span>
+                </oj-option>
+                <oj-option value="o2">
+                    <span slot='startIcon' class="oj-ux-ico-cut"></span>
+                </oj-option>
+                <oj-option value="o3">
+                    <span slot='startIcon' class="oj-ux-ico-clipboard-down"></span>
+                </oj-option>
+            </oj-buttonset-one>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-menu-button id="menuButton1">
+                Menu Button
+                <oj-menu id="myMenu1" slot="menu" style="display:none">
+                    <oj-option id="save1" value="Save">
+                        <span class="oj-ux-ico-save" slot="startIcon"></span>Save
+                    </oj-option>
+                    <oj-option id="zoomin1" value="Zoom In">
+                        <span class="oj-ux-ico-zoom-in" slot="startIcon"></span>Zoom In
+                    </oj-option>
+                    <oj-option id="zoomout1" value="Zoom Out">
+                        <span class="oj-ux-ico-zoom-out" slot="startIcon"></span>Zoom Out
+                    </oj-option>
+                    <oj-option id="print1" value="Print..." disabled="true">
+                        <span class="oj-ux-ico-print" slot="startIcon"></span>Print...
+                    </oj-option>
+                </oj-menu>
+            </oj-menu-button>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-buttonset-many id="iconset" display="icons" focus-management="none">
+                <oj-bind-for-each data="[[someButtons]]">
+                    <template>
+                        <oj-option value="[[$current.data.id]]">
+                            <span slot="startIcon" :class="[[$current.data.icon]]"></span>
+                            <span><oj-bind-text value="[[$current.data.id]]"></oj-bind-text></span>
+                        </oj-option>
+                    </template>
+                </oj-bind-for-each>
+            </oj-buttonset-many>
+
+        </oj-toolbar>
+    </div>
+
+    <div class="app-content">
+        <h1>Toolbar with outlined chroming</h1>
+        <oj-toolbar chroming="outlined">
+            <oj-button on-oj-action="[[onClick]]" display="icons">
+                <span slot='startIcon' class="oj-ux-ico-mouse"></span>
+            </oj-button>
+            <oj-button on-oj-action="[[onClick]]" display="icons">
+                <span slot='startIcon' class="oj-ux-ico-clock"></span>
+            </oj-button>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-buttonset-many>
+                <oj-option value="m1">A</oj-option>
+                <oj-option value="m2">B</oj-option>
+                <oj-option value="m3">C</oj-option>
+            </oj-buttonset-many>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-buttonset-one>
+                <oj-option value="o1">
+                    <span slot='startIcon' class="oj-ux-ico-copy"></span>
+                </oj-option>
+                <oj-option value="o2">
+                    <span slot='startIcon' class="oj-ux-ico-cut"></span>
+                </oj-option>
+                <oj-option value="o3">
+                    <span slot='startIcon' class="oj-ux-ico-clipboard-down"></span>
+                </oj-option>
+            </oj-buttonset-one>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-menu-button id="menuButton1">
+                Menu Button
+                <oj-menu id="myMenu1" slot="menu" style="display:none">
+                    <oj-option id="save1" value="Save">
+                        <span class="oj-ux-ico-save" slot="startIcon"></span>Save
+                    </oj-option>
+                    <oj-option id="zoomin1" value="Zoom In">
+                        <span class="oj-ux-ico-zoom-in" slot="startIcon"></span>Zoom In
+                    </oj-option>
+                    <oj-option id="zoomout1" value="Zoom Out">
+                        <span class="oj-ux-ico-zoom-out" slot="startIcon"></span>Zoom Out
+                    </oj-option>
+                    <oj-option id="print1" value="Print..." disabled="true">
+                        <span class="oj-ux-ico-print" slot="startIcon"></span>Print...
+                    </oj-option>
+                </oj-menu>
+            </oj-menu-button>
+
+            <span class="oj-toolbar-separator"></span>
+
+            <oj-buttonset-many id="iconset" display="icons" focus-management="none">
+                <oj-bind-for-each data="[[someButtons]]">
+                    <template>
+                        <oj-option value="[[$current.data.id]]">
+                            <span slot="startIcon" :class="[[$current.data.icon]]"></span>
+                            <span><oj-bind-text value="[[$current.data.id]]"></oj-bind-text></span>
+                        </oj-option>
+                    </template>
+                </oj-bind-for-each>
+            </oj-buttonset-many>
+
+        </oj-toolbar>
+    </div>
+
+    <div class="app-content">
+        <h1>Toolbar with inputtext - nowrap</h1>
+        <p>Noticed there is a minor mis-alignment issue!</p>
+        <oj-toolbar class="oj-sm-flex-wrap-nowrap" chroming="outlined">
+            <oj-input-text value="[[toolbarInputValue]]"></oj-input-text>
+            <oj-button on-oj-action="[[onClick]]">Go</oj-button>
+        </oj-toolbar>
+    </div>
+
+    <div class="app-content">
+        <h1>oj-flex-bar with inputtext - fix misaligned</h1>
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-middle">
+                <oj-input-text value="[[toolbarInputValue]]"></oj-input-text>
+            </div>
+            <div class="oj-flex-bar-end">
+                <oj-button on-oj-action="[[onClick]]">Go</oj-button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require([
+        'knockout',
+        'ojs/ojknockout',
+        'ojs/ojtoolbar',
+        'ojs/ojbutton',
+        'ojs/ojmenu',
+        'ojs/ojinputtext'
+    ], function (ko) {
+        let app = new function () {
+            this.message = ko.observable(0);
+            this.toolbarInputValue = ko.observable('');
+
+            this.someButtons = [
+                {id: 'Bold', icon: 'oj-ux-ico-bold'},
+                {id: 'Italics', icon: 'oj-ux-ico-italics'},
+                {id: 'Underline', icon: 'oj-ux-ico-underline'}
+            ];
+
+            this.onClick = () => {
+                this.message(this.message() + 1);
+            }
+        };
+        ko.applyBindings(app);
+    });
+</script>

@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app">
+    <oj-input-date value="{{dateInput}}"></oj-input-date>
+    <oj-bind-text value="[[dateInput]]"></oj-bind-text>
+</div>
+<script>
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojdatetimepicker'], function (ko) {
+        let app = new function () {
+            this.dateInput = ko.observable('');
+        };
+        ko.applyBindings(app);
+    });
+</script>

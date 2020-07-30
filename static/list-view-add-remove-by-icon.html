@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="demos.css">
+<link rel="stylesheet" href="demos-icons.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <div class="app-content">
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-middle">
+                <oj-input-text value="{{inputValue}}" placeholder="Add item text"></oj-input-text>
+            </div>
+            <div class="oj-flex-bar-end">
+                <oj-button on-oj-action="[[add]]">Add</oj-button>
+            </div>
+        </div>
+    </div>
+    <h1>ListView</h1>
+    <p>Note the animation after new item added is slow? It realign the close button too slow?</p>
+    <div class="oj-panel">
+        <oj-list-view data="[[dataProvider]]">
+            <template slot="itemTemplate">
+                <!--
+                OJET9 bug: https://proddev-erp-cx.slack.com/archives/CFXE9SXR7/p1591191672068100
+                https://jira.oraclecorp.com/jira/browse/JET-37114
+                -->
+                <div class="oj-flex-bar" style="flex-grow:1;">
+                    <div class="oj-flex-bar-middle">
+                        <span><oj-bind-text value="[[$current.data]]"></oj-bind-text></span>
+                    </div>
+                    <div class="oj-flex-bar-end">
+                        <span class="oj-ux-ico-close-circle" on-click="[[remove]]"></span>
+                    </div>
+                </div>
+            </template>
+        </oj-list-view>
+    </div>
+</div>
+<script>
+    /*
+    The oj-list-view as default will just display a list of items.
+     */
+    let app;
+    require(['knockout', 'ojs/ojarraydataprovider',
+        'ojs/ojknockout', 'ojs/ojlistview',
+        'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojinputtext'
+    ], function (ko, ArrayDataProvider) {
+        app = new function () {
+            this.data = ko.observableArray([]);
+            this.dataProvider = new ArrayDataProvider(this.data);
+            this.inputValue = ko.observable('');
+
+            this.add = () => {
+                let item = this.inputValue() || Math.random().toString(16).substring(2);
+                console.log("Adding item=" + item);
+                this.data.push(item);
+            };
+            this.remove = (event, row) => {
+                //console.log("remove", event, row);
+
+                // Note we can not rely on this index value if user keep removing items.
+                // let index = row.index;
+                let index = this.data().findIndex(x => x === row.data);
+                console.log("Removing index=" + index);
+                this.data.splice(index, 1);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

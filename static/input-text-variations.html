@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="demo-static.css">
+<div id="app">
+
+    <div class="app-content">
+        <p>Using oj-flex</p>
+        <div class="oj-flex">
+            <div class="oj-flex-item app-has-right-gap">
+                <oj-input-text value="{{inputValue}}" label-hint="Input value"></oj-input-text>
+            </div>
+            <div class="oj-flex-item oj-sm-flex-0">
+                <oj-button class="oj-button-lg" on-oj-action="[[onApply]]">Apply</oj-button>
+            </div>
+        </div>
+        <div class="app-content">
+            <code>
+                <oj-bind-text value="[[inputValue]]"></oj-bind-text>
+            </code>
+        </div>
+    </div>
+
+    <div class="app-content">
+        <p>Using oj-form-layout</p>
+        <oj-form-layout max-columns="2" direction="row">
+            <oj-input-text value="{{inputValue}}" label-hint="Input value"></oj-input-text>
+            <oj-button class="oj-button-lg" on-oj-action="[[onApply]]">Apply</oj-button>
+        </oj-form-layout>
+        <oj-bind-if test="[[inputValue]]">
+            <div>Result:
+                <oj-bind-text value="[[inputValue]]"></oj-bind-text>
+            </div>
+        </oj-bind-if>
+    </div>
+    <div class="app-content">
+        <p>Using oj-flex-bar</p>
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-middle">
+                <oj-input-text value="{{inputValue}}" label-hint="Input value"></oj-input-text>
+            </div>
+            <div class="oj-flex-bar-middle">
+                <oj-button class="oj-button-lg" on-oj-action="[[onApply]]">Apply</oj-button>
+            </div>
+        </div>
+        <oj-bind-if test="[[inputValue]]">
+            <div>Result:
+                <oj-bind-text value="[[inputValue]]"></oj-bind-text>
+            </div>
+        </oj-bind-if>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({baseUrl: '../../../web/js'});
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojformlayout', 'ojs/ojbutton', 'ojs/ojinputtext'], function (ko) {
+        let app = new function () {
+            this.inputValue = ko.observable();
+            this.onApply = () => {
+                console.log("Applying value: " + this.inputValue());
+            }
+        };
+        ko.applyBindings(app, document.getElementById("app"));
+    });
+</script>

@@ -1,0 +1,30 @@
+<link href="../../static/main-demo.css" rel="stylesheet">
+<div class="oj-panel">
+    <oj-form-layout label-edge="start">
+        <oj-label-value>
+            <oj-label slot="label" show-required="true">Username</oj-label>
+            <oj-input-text slot="value"></oj-input-text>
+        </oj-label-value>
+        <oj-label-value>
+            <oj-label slot="label">API</oj-label>
+            <oj-input-text slot="value"></oj-input-text>
+        </oj-label-value>
+        <oj-label-value>
+            <oj-button slot="value">Update</oj-button>
+        </oj-label-value>
+    </oj-form-layout>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    let app;
+    require(['knockout', 'ojs/ojknockout',
+        'ojs/ojformlayout', 'ojs/ojlabel', 'ojs/ojlabelvalue',
+        'ojs/ojinputtext', 'ojs/ojbutton'
+    ], (ko) => {
+        app = new function () {
+        };
+        ko.applyBindings(app);
+    });
+</script>

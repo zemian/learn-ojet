@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <h1>ListView</h1>
+    <div class="oj-panel">
+        <oj-list-view data="[[dataProvider]]"
+                      selection-mode="multiple"
+                      on-selected-changed="[[onSelection]]">
+            <template slot="itemTemplate">
+                <span>
+                    <oj-bind-text value="[[$current.data.id]]"></oj-bind-text>
+                    <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
+                </span>
+            </template>
+        </oj-list-view>
+    </div>
+</div>
+<script>
+    /*
+    Hold Cmd+Click to select multiple entry in list.
+
+    Click any existing selection ONCE to CLEAR the selection.
+
+    Clicking on selected entry will REMOVE it from selection. (Note that if your mouse continue to hover, the
+    row will continue to remain highlighted, even if the selection is removed!)
+     */
+    let app;
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojlistview'
+    ], function (ko, ArrayDataProvider) {
+        app = new function () {
+            this.data = ko.observableArray([
+                {id: 1, label: 'Monday'},
+                {id: 2, label: 'Tuesday'},
+                {id: 3, label: 'Wednesday'},
+                {id: 4, label: 'Thursday'},
+                {id: 5, label: 'Friday'},
+                {id: 6, label: 'Saturday'},
+                {id: 7, label: 'Sunday'}
+            ]);
+            this.dataProvider = new ArrayDataProvider(this.data, {keyAttributes: 'id'});
+            this.onSelection = (event) => {
+                //console.log("Clicked", event);
+
+                // Getting the selected value from "detail.value"
+                let keySet = event.detail.value;
+                let selectedKeys = Array.from(keySet.values()); // Converting OJET KeySet to JS Set, then to JS Array
+                let selectedItems = selectedKeys.map(k => {
+                    let selectedValue = this.data()[k];
+                    return selectedValue;
+                });
+                console.log("selected:", selectedItems);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

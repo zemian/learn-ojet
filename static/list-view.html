@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <h1>ListView</h1>
+    <div class="oj-panel">
+        <oj-list-view data="[[dataProvider]]">
+        </oj-list-view>
+    </div>
+</div>
+<script>
+    /*
+    The oj-list-view as default will just display a list of items.
+     */
+    let app;
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojlistview'
+    ], function (ko, ArrayDataProvider) {
+        app = new function () {
+            this.data = ko.observableArray([
+                'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
+            ]);
+            this.dataProvider = new ArrayDataProvider(this.data);
+        };
+        ko.applyBindings(app);
+    });
+</script>

@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <h1>ListView</h1>
+    <div class="oj-panel">
+        <oj-list-view selection-mode="single"
+                      on-selected-changed="[[onSelection]]">
+            <ul>
+                <li id="item1"><span>Item 1</span></li>
+                <li id="item2"><span>Item 2</span></li>
+                <li id="item3"><span>Item 3</span></li>
+            </ul>
+        </oj-list-view>
+    </div>
+</div>
+<script>
+    /*
+    Notice the <li> id value is being captured in selected value.
+
+    Note: Each <li> item must contain a container element. Plain text will not work!
+     */
+    let app;
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojlistview'
+    ], function (ko, ArrayDataProvider) {
+        app = new function () {
+            this.onSelection = (event) => {
+                //console.log("Clicked", event);
+
+                // Getting the selected value from "detail.value"
+                let keySet = event.detail.value;
+                let selectedKey = Array.from(keySet.values())[0];
+                console.log("selectedKey:", selectedKey);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

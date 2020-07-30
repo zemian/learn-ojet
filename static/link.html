@@ -1,0 +1,23 @@
+<link href="../../static/main-demo.css" rel="stylesheet">
+<div id="app" class="oj-web-padding">
+    <div class="oj-panel">
+        <a href="#" on-click="[[onAction]]">Link With HREF</a>
+        <a on-click="[[onAction]]">Link Without HREF</a>
+        <a class="oj-link-standalone" on-click="[[onAction]]">Link With OJET Link</a>
+    </div>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    let app;
+    require(['knockout', 'ojs/ojknockout'], (ko) => {
+        app = new function () {
+            this.onAction = (event, data) => {
+                console.log("onAction event, data", event, data);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>
+

@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app">
+    <div class="app-content">
+        <p>With icons</p>
+        <oj-tree-view data="[[data]]">
+            <template slot="itemTemplate" data-oj-as="row">
+                <span class="oj-treeview-item-icon"></span>
+                <span class="oj-treeview-item-text">
+                    <oj-bind-text value="[[row.data.title]]"></oj-bind-text>
+                </span>
+            </template>
+        </oj-tree-view>
+    </div>
+
+    <div class="app-content">
+        <p>No icons</p>
+        <oj-tree-view data="[[data]]">
+            <template slot="itemTemplate" data-oj-as="row">
+                <span class="oj-treeview-item-text">
+                    <oj-bind-text value="[[row.data.title]]"></oj-bind-text>
+                </span>
+            </template>
+        </oj-tree-view>
+    </div>
+
+    <div class="app-content">
+        <p>Selection</p>
+        <oj-tree-view data="[[data]]" selection-mode="multiple" selected="{{selected}}">
+            <template slot="itemTemplate" data-oj-as="row">
+                <span class="oj-treeview-item-text">
+                    <oj-bind-text value="[[row.data.title]]"></oj-bind-text>
+                </span>
+            </template>
+        </oj-tree-view>
+        <div>
+            <pre><oj-bind-text value="[[Array.from(selected().values())]]"></oj-bind-text></pre>
+        </div>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojarraytreedataprovider', 'ojs/ojkeyset',
+        'text!../../test/static-ojet/tree-data.json',
+        'ojs/ojknockout', 'ojs/ojtreeview'
+    ], function (ko, ArrayTreeDataProvider, KeySet, jsonData) {
+        let app = new function () {
+            this.data = new ArrayTreeDataProvider(JSON.parse(jsonData), { keyAttributes: 'id' });
+            this.selected = ko.observable(new KeySet.KeySetImpl());
+        };
+        ko.applyBindings(app);
+    });
+</script>

@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <h1>ListView</h1>
+    <div class="oj-panel">
+        <oj-list-view data="[[dataProvider]]"
+                      selection-mode="single"
+                      selected="{{selectedKeys}}"
+                      on-click="[[onClick]]">
+            <template slot="itemTemplate">
+                <span>
+                    <oj-bind-text value="[[$current.data.id]]"></oj-bind-text>
+                    <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
+                </span>
+            </template>
+        </oj-list-view>
+    </div>
+</div>
+
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../static/main-demo.js"></script>
+<script>
+    /*
+    This demo will use 'click' event to read the writeback value in selectedKeys.
+
+    NOTE: You must use selection-mode="single" to enable writeback to selectedKeys. Else there will be no error,
+    and your writeback variable will always be empty!
+
+    NOTE: This method only get you the key that's selected, you would still need to search through your original
+    data set to find the value object! If you want the event handler to have the object passed, then consider
+    using the 'on-selected-changed' event instead.
+
+    This is different than handling the 'on-selected-changed' event because
+    'on-selected-changed' will pass data that remove selection when  you click it the 2nd time!
+    */
+    let app;
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout-keyset', 'ojs/ojknockout', 'ojs/ojlistview'
+    ], function (ko, ArrayDataProvider, KeySet) {
+        app = new function () {
+            this.data = ko.observableArray([
+                {id: 1, label: 'Monday'},
+                {id: 2, label: 'Tuesday'},
+                {id: 3, label: 'Wednesday'},
+                {id: 4, label: 'Thursday'},
+                {id: 5, label: 'Friday'},
+                {id: 6, label: 'Saturday'},
+                {id: 7, label: 'Sunday'}
+            ]);
+            this.dataProvider = new ArrayDataProvider(this.data, {keyAttributes: 'id'});
+            this.selectedKeys = new KeySet.ObservableKeySet(); // Note you can not use KO observableArray here!
+            this.onClick = () => {
+                let selectedKey = Array.from(this.selectedKeys().values())[0];
+                let selectedItem = this.data().find(e => e.id === selectedKey);
+                console.log("selectedItem", selectedItem);
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

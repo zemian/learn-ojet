@@ -1,0 +1,20 @@
+<div id="app" class="oj-web-padding">
+    <oj-bind-dom config="[[contentConfig]]"></oj-bind-dom>
+</div>
+
+<link rel="stylesheet" href="../../static/static.css">
+<script type="text/javascript" src="../../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({ baseUrl: '../../../../web/js' });
+    require(['knockout', 'ojs/ojhtmlutils',
+        'text!../../static/docs/HT204306.html',
+        'ojs/ojknockout', 'ojs/ojbinddom'
+    ], (ko, HtmlUtils, docHtml) => {
+        let app = new function() {
+            let contentNodes = HtmlUtils.stringToNodeArray(docHtml);
+            this.contentConfig = ko.observable({view: contentNodes});
+        };
+        ko.applyBindings(app);
+    });
+</script>

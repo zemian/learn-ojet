@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app">
+    <div class="app-content">
+        <div class="app-card">
+            <oj-file-picker on-oj-select='[[listener]]'></oj-file-picker>
+        </div>
+    </div>
+
+    <div class="app-content">
+        <p>Accept filter: images and videos</p>
+        <div class="app-card">
+            <oj-file-picker on-oj-select='[[listener]]' accept='["image/*", "video/*", "text/*"]'></oj-file-picker>
+        </div>
+    </div>
+
+    <div class="app-content">
+        <p>Accept filter: text files</p>
+        <div class="app-card">
+            <!-- note "text/*" will not work! It must be spelled out! -->
+            <oj-file-picker on-oj-select='[[listener]]' accept='["text/plain"]'></oj-file-picker>
+        </div>
+    </div>
+
+    <div class="app-content">
+        <p>Custom trigger</p>
+        <div class="app-container">
+            <oj-file-picker on-oj-select='[[listener]]' select-on="clickAndDrop">
+                <!-- Note that you cannot use template here. It needs to be a clickable element. -->
+                <div slot="trigger" class="app-box app-card">
+                    <span>CUSTOM FILE UPLOAD DROP ZONE AREA</span>
+                </div>
+            </oj-file-picker>
+        </div>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojfilepicker'], function (ko) {
+        let app = new function () {
+            this.listener = (event) => {
+                console.log("filepicker listener: ", event);
+                // fileName = event.detail.files[0].name
+            };
+        };
+        ko.applyBindings(app);
+    });
+</script>

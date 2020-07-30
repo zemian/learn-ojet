@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="demo-static.css">
+<div id="app">
+    <div class="oj-flex oj-sm-flex-direction-column oj-sm-justify-content-center" style="height: 80vh;">
+        <div class="oj-flex-item oj-sm-flex-0">
+            <div class="oj-flex oj-sm-justify-content-center">
+                <div class="oj-flex-item oj-sm-flex-0">
+                    <!-- Center Screen Message -->
+                    <div class="oj-panel" style="width: 300px; height: 200px;">
+                        <span><oj-bind-text value="[[message]]"></oj-bind-text></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({baseUrl: '../../../web/js'});
+    require(['knockout', 'ojs/ojknockout'], function (ko) {
+        let app = new function () {
+            this.message = "Hello World!";
+        };
+        ko.applyBindings(app);
+    });
+</script>

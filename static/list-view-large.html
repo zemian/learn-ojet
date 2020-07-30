@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app" class="oj-web-padding">
+    <h1>ListView</h1>
+    <div class="oj-panel">
+        <oj-list-view data="[[dataProvider]]"
+                      scroll-policy-options.max-count="1000">
+        </oj-list-view>
+    </div>
+</div>
+<script>
+    /*
+    The default value for scroll-policy-options.max-count is 500.
+     */
+    let app;
+    require(['knockout', 'ojs/ojarraydataprovider', 'ojs/ojknockout', 'ojs/ojlistview'
+    ], function (ko, ArrayDataProvider) {
+        app = new function () {
+            this.data = ko.observableArray([]);
+            this.dataProvider = new ArrayDataProvider(this.data);
+
+            // Init data
+            for (let i = 0; i < 1000; i++) {
+                let label = Math.random().toString(16).substring(2);
+                this.data.push(i + " - " + label);
+            }
+        };
+        ko.applyBindings(app);
+    });
+</script>

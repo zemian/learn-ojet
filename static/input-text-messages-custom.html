@@ -1,0 +1,51 @@
+<!--
+NOTE: Note the spelling of "messages-custom" attribute is very odd and it MUST be exact to work.
+If you misspelled it nothing will happen!
+-->
+
+<link rel="stylesheet" href="demo-static.css">
+<div id="app">
+    <div class="app-content">
+        <div class="oj-flex">
+            <div class="oj-flex-item app-has-right-gap">
+                <oj-input-text id="app-input"
+                               value="{{inputValue}}"
+                               label-hint="Input value"
+                               messages-custom="{{inputCustomMessages}}"></oj-input-text>
+            </div>
+            <div class="oj-flex-item oj-sm-flex-0">
+                <oj-button class="oj-button-lg" on-oj-action="[[onApply]]">Apply</oj-button>
+            </div>
+        </div>
+    </div>
+    <div class="app-content">
+        <code>
+            <oj-bind-text value="[[inputValue]]"></oj-bind-text>
+        </code>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../web/js/libs/require/require.js"></script>
+<script type="text/javascript" src="../requirejs-ojet.js"></script>
+<script>
+    requirejs.config({baseUrl: '../../../web/js'});
+    require(['knockout', 'ojs/ojmessaging', 'ojs/ojknockout', 'ojs/ojbutton', 'ojs/ojinputtext'], function (ko, Message) {
+        let app = new function () {
+            this.inputValue = ko.observable();
+            this.inputCustomMessages = ko.observableArray();
+
+            this.onApply = () => {
+                console.log("Applying value: " + this.inputValue());
+
+                // let input = document.getElementById("app-input");
+                // input.validate();
+
+                // Add custom message(summary, detail, options)
+                // Note: Redwood reverse that it will only display detail part of the message, not the summary.
+                // See https://proddev-erp-cx.slack.com/archives/CFXE9SXR7/p1589921612211800
+                this.inputCustomMessages.push(new Message("An error", "This is a extra error message", Message.SEVERITY_LEVEL.ERROR));
+            }
+        };
+        ko.applyBindings(app);
+    });
+</script>

@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="demos.css">
+<script src="../../web/js/libs/require/require.js"></script>
+<script src="../../web/js/main.js"></script>
+<script>require.config({baseUrl: '../../web/js'});</script>
+
+<div id="app">
+    <div class="app-content">
+        <oj-tree-view id="treeview1">
+            <ul>
+                <li>
+                    <a id="group1" href="#">Group 1</a>
+                    <ul>
+                        <li><a id="item1-1" href="#">Item 1-1</a></li>
+                        <li><a id="item1-2" href="#">Item 1-2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="group2" href="#">Group 2</a>
+                    <ul>
+                        <li><a id="item2-1" href="#">Item 2-1</a></li>
+                        <li><a id="item2-2" href="#">Item 2-2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </oj-tree-view>
+    </div>
+</div>
+<script>
+    require(['knockout', 'ojs/ojknockout', 'ojs/ojtreeview'], function (ko) {
+        let app = new function () {
+            this.message = ko.observable("Hello World!");
+        };
+        ko.applyBindings(app);
+    });
+</script>
