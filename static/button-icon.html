@@ -1,5 +1,7 @@
-<link rel="stylesheet" href="demo-static.css">
-<link rel="stylesheet" href="../static/static-icons.css">
+<link rel="stylesheet" href="https://static.oracle.com/cdn/fnd/gallery/2010.0.0/images/iconfont/ojuxIconFont.min.css">
+<script src="../web/js/libs/require/require.js"></script>
+<script src="main.js"></script>
+
 <div id="app">
     <div class="app-content oj-badge">
         <oj-bind-text value="[[message]]"></oj-bind-text>
@@ -22,12 +24,7 @@
     </div>
 </div>
 
-<script src="../web/js/libs/require/require.js"></script>
-<script src="main.js"></script>
-
-
 <script>
-    requirejs.config({baseUrl: '../../../web/js'});
     require([
         'knockout',
         'ojs/ojknockout',
