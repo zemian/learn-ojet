@@ -1,0 +1,13 @@
+{
+  "items": [],
+  "hasMore": false,
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "http://172.17.0.7:8081/km/api/latest/content?limit=20&offset=0",
+      "mediaType": "application/json, application/xml",
+      "method": "GET"
+    }
+  ],
+  "count": 0
+}

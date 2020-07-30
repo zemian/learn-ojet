@@ -1,0 +1,430 @@
+{
+  "items": [
+    {
+      "recordId": "180B5C90C25447D2842CF33418EA5ABC",
+      "referenceKey": "LOUD_SPEAKER_AND_GOLD_CORED_WIRE",
+      "objectId": "050.005",
+      "name": "Loud Speaker and Gold Cored Wire",
+      "externalId": 109876540066014,
+      "externalType": "PRODUCT",
+      "description": "Can be used to listen to music.",
+      "links": [
+        {
+          "rel": "parent",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB9E15D0A34943A98C0EBD2135B6E654",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/180B5C90C25447D2842CF33418EA5ABC",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 5,
+      "hasChildren": false
+    },
+    {
+      "recordId": "09B70732772B47BC8B11BC51B9DEC8FF",
+      "referenceKey": "DEEP_SEA_EXPLORER_EQUIPMENT",
+      "objectId": "050.004",
+      "name": "Deep Sea Explorer Equipment",
+      "externalId": 109876540066013,
+      "externalType": "PRODUCT",
+      "description": "Some kind of equipment.",
+      "links": [
+        {
+          "rel": "parent",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB9E15D0A34943A98C0EBD2135B6E654",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/09B70732772B47BC8B11BC51B9DEC8FF",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 4,
+      "hasChildren": false
+    },
+    {
+      "recordId": "0185E69782574999B178B29DEDE1854F",
+      "referenceKey": "CONSOLE",
+      "objectId": "050.003",
+      "name": "Console",
+      "externalId": 109876540066012,
+      "externalType": "PRODUCT",
+      "description": "Gaming console.",
+      "links": [
+        {
+          "rel": "parent",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB9E15D0A34943A98C0EBD2135B6E654",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/0185E69782574999B178B29DEDE1854F",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "inventoryOrgId": 204,
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 3,
+      "hasChildren": false
+    },
+    {
+      "recordId": "C4BB144DA1D6447CB09211D0DA47310A",
+      "referenceKey": "TABLET",
+      "objectId": "050.002",
+      "name": "Tablet",
+      "externalId": 109876540066011,
+      "externalType": "PRODUCT",
+      "description": "Touchscreen device in between a cellphone and a laptop.",
+      "links": [
+        {
+          "rel": "parent",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB9E15D0A34943A98C0EBD2135B6E654",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/C4BB144DA1D6447CB09211D0DA47310A",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "inventoryOrgId": 204,
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 2,
+      "hasChildren": false
+    },
+    {
+      "recordId": "BDA0D6F1944D4331A0E2D91B88BEE86E",
+      "referenceKey": "MOBILE_PHONE",
+      "objectId": "050.001",
+      "name": "Mobile Phone",
+      "externalId": 109876540066010,
+      "externalType": "PRODUCT",
+      "description": "A.k.a. cellphone.",
+      "links": [
+        {
+          "rel": "parent",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB9E15D0A34943A98C0EBD2135B6E654",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/BDA0D6F1944D4331A0E2D91B88BEE86E",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 1,
+      "hasChildren": false
+    },
+    {
+      "recordId": "DB9E15D0A34943A98C0EBD2135B6E654",
+      "referenceKey": "SERVICE",
+      "objectId": "050",
+      "name": "Service",
+      "externalId": 109876540066009,
+      "externalType": "PRODUCT",
+      "description": "Used by Service application.",
+      "links": [
+        {
+          "rel": "children",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB9E15D0A34943A98C0EBD2135B6E654/children",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB9E15D0A34943A98C0EBD2135B6E654",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 1,
+      "hasChildren": true
+    },
+    {
+      "recordId": "EA90938CA0E44E118C8DB8520F606908",
+      "referenceKey": "UNITED_STATE_OF_AMERIC_AND_COMMONWEATH",
+      "objectId": "007",
+      "name": "United State Of Americ and Commonweath",
+      "externalId": 300100095920020,
+      "externalType": "CATEGORY",
+      "description": "Looks like the full name of USA but is not.",
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/EA90938CA0E44E118C8DB8520F606908",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 6,
+      "hasChildren": false
+    },
+    {
+      "recordId": "DB3B6D8BA3A84796992BC0660AFB584C",
+      "referenceKey": "THE_PEOPLE_OF_REPUBLIC_CHINA_ROC",
+      "objectId": "006",
+      "name": "The People Of Republic China ROC",
+      "externalId": 300100095920019,
+      "externalType": "CATEGORY",
+      "description": "Looks like the full name of China but is not.",
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DB3B6D8BA3A84796992BC0660AFB584C",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 5,
+      "hasChildren": false
+    },
+    {
+      "recordId": "F7375A2EEB164A2EAD8017341F116F3B",
+      "referenceKey": "CHINA",
+      "objectId": "005",
+      "name": "China",
+      "externalId": 300100095920018,
+      "externalType": "CATEGORY",
+      "description": "A country in Asia.",
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/F7375A2EEB164A2EAD8017341F116F3B",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 4,
+      "hasChildren": false
+    },
+    {
+      "recordId": "A1E4D76EA4EE4F1994E70E89D423E02C",
+      "referenceKey": "GERMANY",
+      "objectId": "004",
+      "name": "Germany",
+      "externalId": 300100095920017,
+      "externalType": "CATEGORY",
+      "description": "A country in Europe.",
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/A1E4D76EA4EE4F1994E70E89D423E02C",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 3,
+      "hasChildren": false
+    },
+    {
+      "recordId": "27F6A3412B3D48F991C551305E48911E",
+      "referenceKey": "FRANCE",
+      "objectId": "003",
+      "name": "France",
+      "externalId": 300100095920016,
+      "externalType": "CATEGORY",
+      "description": "A country in Europe.",
+      "links": [
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/27F6A3412B3D48F991C551305E48911E",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 2,
+      "hasChildren": false
+    },
+    {
+      "recordId": "16DCFE9A9DAE4E37A3C441A317C71402",
+      "referenceKey": "LONDON",
+      "objectId": "002.001",
+      "name": "London",
+      "externalId": 300100095920021,
+      "externalType": "CATEGORY",
+      "description": "The capital and largest city of both England and UK.",
+      "links": [
+        {
+          "rel": "parent",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DACAE4AB4FEB4DC28EE554B468F410C1",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/16DCFE9A9DAE4E37A3C441A317C71402",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 1,
+      "hasChildren": false
+    },
+    {
+      "recordId": "DACAE4AB4FEB4DC28EE554B468F410C1",
+      "referenceKey": "ENGLAND",
+      "objectId": "002",
+      "name": "England",
+      "externalId": 300100095920015,
+      "externalType": "CATEGORY",
+      "description": "Part of Britian.",
+      "links": [
+        {
+          "rel": "children",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DACAE4AB4FEB4DC28EE554B468F410C1/children",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "canonical",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories/DACAE4AB4FEB4DC28EE554B468F410C1",
+          "mediaType": "application/json, application/xml",
+          "method": "GET"
+        },
+        {
+          "rel": "collection",
+          "href": "http://172.17.0.7:8081/km/api/latest/categories",
+          "mediaType": "application/json, application/xml",
+          "method": "GET",
+          "profile": "http://172.17.0.7:8081/km/api/latest/metadata-catalog/categories"
+        }
+      ],
+      "dateAdded": "1970-01-01T23:11:11.000+0000",
+      "dateModified": "1970-01-01T23:11:11.000+0000",
+      "sortOrder": 1,
+      "hasChildren": true
+    }
+  ],
+  "hasMore": false,
+  "limit": 20,
+  "offset": 0,
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "http://172.17.0.7:8081/km/api/latest/categories?limit=20&offset=0",
+      "mediaType": "application/json, application/xml",
+      "method": "GET"
+    }
+  ],
+  "count": 13
+}
