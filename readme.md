@@ -2,7 +2,7 @@
 
 This project is for exploring [Oracle JET](https://oraclejet.org) framework. 
 
-The initial files are generated using `npx '@oracle/ojet-cli create myojet` with a blank template.
+The initial files are generated using `npx '@oracle/ojet-cli' create learn-ojet` with a blank template.
 
 Additional References:
 - https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html
