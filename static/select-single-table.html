@@ -29,7 +29,7 @@
 
             // init data
             // console.log("Fetching data...");
-            let url = 'http://den02lxb.us.oracle.com:8090/km/api/latest/categories';
+            let url = 'api/latest/categories';
             fetch(url).then(resp => resp.json()).then(data => {
                 console.log("data", data);
                 this.data.push(...data.items);
