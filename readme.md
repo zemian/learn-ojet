@@ -1,18 +1,15 @@
-# About
+# Learning Oracle JET
 
-This project is for exploring Oracle JET framework. The initial files are generated using
-`ojet create myojet` with a blank template.
+This project is for exploring [Oracle JET](https://oraclejet.org) framework. 
 
-References:
-- https://oraclejet.org
+The initial files are generated using `npx '@oracle/ojet-cli create myojet` with a blank template.
+
+Additional References:
 - https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html
-- https://www.oracle.com/webfolder/technetwork/jet/jsdocs/oj.ojRadioset.html
+- https://www.oracle.com/webfolder/technetwork/jet/jsdocs/index.html
 
-## Local Cookbook
+## Quick static files testing
 
-We can explore some JET cookbook examples locally here by creating a html file under `src/cookbook`.
-The files will be auto copy to `web` folder when you run `ojet serve`, hence it can accessible by 
-`http://localhost:8080/cookbook/<file.html>`
+Instead of loading and running the full OJET application, we can quickly test OJET UI component using static html file. See `static/hello.html` for example.
 
-NOTE: The `cookbook/<file.html>` file will not be accessible as standalone HTML (or using WebStorm
-local host server!). It must be served using `ojet serve` command.
+NOTE: These static file assume you have run `ojet build` once that generated the `web` folder to access the OJET css and js lib files.
